@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美以伊战争情报日报 — 2026年3月30日 (Day 30)</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --accent: #c62828;
+            --warning: #e65100;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text: #212121;
+            --text-secondary: #616161;
+            --border: #e0e0e0;
+            --success: #2e7d32;
+            --info: #0277bd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0d1b3e 0%, #1a237e 50%, #283593 100%);
+            color: white;
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 13px;
+            opacity: 0.75;
+        }
+
+        .header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .situation-overview {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .situation-overview h2 {
+            font-size: 16px;
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+
+        .situation-overview p {
+            font-size: 15px;
+            color: #4e342e;
+            font-weight: 500;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 24px;
+            margin: 16px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-header .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .icon-red { background: var(--accent); }
+        .icon-blue { background: var(--primary); }
+        .icon-orange { background: var(--warning); }
+        .icon-green { background: var(--success); }
+        .icon-info { background: var(--info); }
+
+        .event-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            background: #fafafa;
+            transition: box-shadow 0.2s;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .event-card .event-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .event-card .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .tag-us { background: #1565c0; }
+        .tag-israel { background: #00897b; }
+        .tag-iran { background: #c62828; }
+        .tag-houthis { background: #6a1b9a; }
+        .tag-hezbollah { background: #e65100; }
+        .tag-diplomacy { background: #2e7d32; }
+        .tag-humanitarian { background: #ad1457; }
+        .tag-russia { background: #37474f; }
+        .tag-un { background: #1565c0; }
+        .tag-gcc { background: #bf360c; }
+
+        .event-card .event-time {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .event-card .event-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .event-card .event-detail {
+            font-size: 14px;
+            color: #424242;
+        }
+
+        .event-card .event-impact {
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: #e3f2fd;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #0d47a1;
+        }
+
+        .event-card .event-impact strong {
+            color: #1a237e;
+        }
+
+        .event-card .source {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #9e9e9e;
+        }
+
+        .event-card .source a {
+            color: #1565c0;
+            text-decoration: none;
+        }
+
+        .subsection {
+            margin: 16px 0;
+        }
+
+        .subsection h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            background: #e8eaf6;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 2px solid #c5cae9;
+        }
+
+        .data-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table .highlight-red {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .data-table .highlight-orange {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .risk-card {
+            border: 1px solid #ffcc80;
+            border-left: 4px solid var(--warning);
+            background: #fff8e1;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            margin: 10px 0;
+        }
+
+        .risk-card .risk-level {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .risk-high { background: #c62828; }
+        .risk-medium { background: #e65100; }
+        .risk-low { background: #f9a825; color: #333 !important; }
+
+        .risk-card .risk-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .risk-card .risk-detail {
+            font-size: 13px;
+            color: #5d4037;
+        }
+
+        .escalation-alert {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .escalation-alert h3 {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #9e9e9e;
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: #1565c0;
+            text-decoration: none;
+        }
+
+        .disclaimer {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            font-size: 12px;
+            color: #757575;
+        }
+
+        @media (max-width: 640px) {
+            .header h1 { font-size: 20px; }
+            .container { padding: 12px; }
+            .section { padding: 16px; }
+            .header .meta { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>⚔️ 美以伊战争情报日报</h1>
+    <div class="subtitle">US-Israel-Iran War Intelligence Daily Brief</div>
+    <div class="meta">
+        <span>📅 2026年3月30日 (北京时间)</span>
+        <span>⏱ 战争第 30 天</span>
+        <span>🔄 信息截止：2026-03-30 19:00 CST</span>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ====== 局势总览 ====== -->
+<div class="situation-overview">
+    <h2>📊 局势总览</h2>
+    <p>
+        战争进入第30天，局势持续升级。以色列3月29-30日对德黑兰发动两轮大规模空袭，投放超过120枚弹药，
+        德黑兰部分地区断电。美军"的黎波里"号两栖攻击舰携3500名陆战队员抵达中东，五角大楼正筹备
+        "数周速决"的有限地面行动方案，目标直指伊朗石油命脉哈尔克岛。伊朗则放出"林肯号航母进入射程即击沉"的警告。
+        胡塞武装正式参战，向以色列发射弹道导弹。伊朗提出六条停战条件，美方提出15项条件，双方条件
+        无交集，和谈陷入僵局。霍尔木兹海峡通行受限，全球铝供应和能源运输面临威胁。
+    </p>
+</div>
+
+<!-- ====== 升级预警 ====== -->
+<div class="escalation-alert">
+    <h3>🚨 升级预警指标</h3>
+    <div style="display:grid; gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:var(--accent);font-weight:700;">🔴 HIGH</span>
+            <span>美军地面行动筹备中 — 第31海军陆战队远征队已就位，五角大楼拟增派至多10,000名地面部队</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:var(--accent);font-weight:700;">🔴 HIGH</span>
+            <span>胡塞武装正式参战 — 冲突从美-以-伊三角扩展为多战线</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:var(--warning);font-weight:700;">🟡 MEDIUM</span>
+            <span>霍尔木兹海峡通行受限 — 特朗普延长开放期限至4月6日</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:var(--warning);font-weight:700;">🟡 MEDIUM</span>
+            <span>伊朗"真实承诺-4"行动已执行至第86波攻势 — 打击频率和范围持续扩大</span>
+        </div>
+    </div>
+</div>
+
+<!-- ====== 核心动态 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-red">🎯</div>
+        <h2>核心动态 Top Signals</h2>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-israel">以色列</span>
+            <span class="event-time">3月29日晚 - 3月30日凌晨（北京时间）</span>
+        </div>
+        <div class="event-title">以色列对德黑兰发动两轮大规模空袭，投放超120枚弹药</div>
+        <div class="event-detail">
+            以军数十架战机在十多分钟内对德黑兰实施两轮密集打击，目标包括伊朗船舶工业组织总部、
+            武器研发和生产设施。空袭后德黑兰部分地区一度断电。过去两天以军在伊朗和黎巴嫩同时实施
+            多轮空袭，打击超过250个目标。
+        </div>
+        <div class="event-impact">
+            <strong>影响评估：</strong>空袭频率和烈度明显增大，显示以色列正加大对伊朗军事工业体系的系统性打击力度。
+        </div>
+        <div class="source">📎 来源：CCTV国际时讯 / 新华网</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-us">美国</span>
+            <span class="event-time">3月27-29日</span>
+        </div>
+        <div class="event-title">美军"的黎波里"号两栖攻击舰抵达中东，地面战方案曝光</div>
+        <div class="event-detail">
+            载有约3,500名海军陆战队员的USS Tripoli抵达中央司令部责任区。据《华盛顿邮报》报道，
+            五角大楼正筹备代号为"尖刀斩首"的有限地面行动方案：不占领土、不打持久战，
+            直指伊朗石油命脉哈尔克岛，预期"数周速决"。此外美军正考虑增派至多10,000名地面作战部队。
+        </div>
+        <div class="event-impact">
+            <strong>影响评估：</strong>如实施，将标志着战争从以空袭为主转向地面阶段，冲突烈度将大幅上升。
+            美军总兵力规模仅为2003年伊拉克战争的百分之一，属于有限行动。
+        </div>
+        <div class="source">📎 来源：《华盛顿邮报》/ CNN / 中华网军事</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-iran">伊朗</span>
+            <span class="event-time">3月29日</span>
+        </div>
+        <div class="event-title">伊朗海军司令放话：林肯号航母进入射程即发射导弹</div>
+        <div class="event-detail">
+            伊朗海军司令沙赫拉姆·伊兰尼表示，伊朗正实时监控美国"林肯"号航母编队的位置和动向，
+            一旦进入射程范围将从海岸向其发射导弹。同时，伊朗武装部队发言人警告，特朗普关于地面行动的威胁
+            将把美军送入"死亡深渊"。
+        </div>
+        <div class="event-impact">
+            <strong>影响评估：</strong>伊朗首次公开对美航母发出直接打击威胁，双方军事对抗升级风险极高。
+        </div>
+        <div class="source">📎 来源：新华网战事速览（29日）</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-houthis">胡塞武装</span>
+            <span class="event-time">3月28日</span>
+        </div>
+        <div class="event-title">胡塞武装正式参战，向以色列发射弹道导弹</div>
+        <div class="event-detail">
+            也门胡塞武装宣布发动"首轮军事行动"支持伊朗，向以色列发射多枚弹道导弹，随后又发射巡航导弹。
+            胡塞发言人萨雷声称对袭击负责，并誓言未来几天继续行动。以色列称所有导弹被拦截，未造成伤亡。
+        </div>
+        <div class="event-impact">
+            <strong>影响评估：</strong>冲突从美-以-伊三角正式扩展为多战线。胡塞武装此前已长期袭击红海航运，
+            正式参战可能进一步威胁能源通道和全球供应链安全。
+        </div>
+        <div class="source">📎 来源：CNN</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-diplomacy">外交</span>
+            <span class="event-time">3月24-29日</span>
+        </div>
+        <div class="event-title">美伊双方停火条件无交集，和谈陷僵局</div>
+        <div class="event-detail">
+            美国通过巴基斯坦向伊朗提出包含15项条件的停战方案，要求伊朗放弃铀浓缩、关闭核设施、
+            切断与地区盟友联系等。伊朗提出六条对等条件：保证战争不再发生、关闭美在中东军事基地、
+            战争赔偿、结束所有战线战事、霍尔木兹海峡新法律体系、审判反伊媒体人员。双方条件完全不可调和。
+            巴基斯坦已促成伊朗同意允许20艘巴船只通过霍尔木兹海峡。
+        </div>
+        <div class="event-impact">
+            <strong>影响评估：</strong>和谈尚处试探阶段，双方均用极端条件展示强硬。短期达成协议的可能性极低。
+        </div>
+        <div class="source">📎 来源：央视网 / 腾讯新闻 / NPR</div>
+    </div>
+</div>
+
+<!-- ====== 军事行动 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-blue">⚔️</div>
+        <h2>军事行动 Military Operations</h2>
+    </div>
+
+    <div class="subsection">
+        <h3>美以军事行动</h3>
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-israel">以色列</span>
+                <span class="event-time">3月29-30日</span>
+            </div>
+            <div class="event-title">德黑兰大规模空袭 + 黎巴嫩多轮打击</div>
+            <div class="event-detail">
+                以军出动数十架战机，对德黑兰投放超120枚弹药，目标包括船舶工业组织总部及武器生产设施。
+                过去两天在伊朗和黎巴嫩打击超过250个目标。黎巴嫩南部空袭导致9名护理人员遇难（WHO称
+                本月医疗人员最致命的一天）。
+            </div>
+            <div class="source">📎 CCTV国际时讯 / CNN</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-us">美国</span>
+                <span class="event-time">3月29日</span>
+            </div>
+            <div class="event-title">美以联军空袭伊拉克北部，致5死9伤</div>
+            <div class="event-detail">
+                美国和以色列袭击伊拉克北部多地，造成至少5人死亡、9人受伤。库尔德斯坦地区巴尔扎尼住所
+                遭袭击，美国谴责为"卑鄙行径"。
+            </div>
+            <div class="source">📎 新华网战事速览（29日）</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-us">美国</span>
+                <span class="event-time">截至Day 25数据</span>
+            </div>
+            <div class="event-title">美军累计打击5000+目标，击沉舰艇51艘</div>
+            <div class="event-detail">
+                美军称已打击伊朗5000+目标、击沉舰艇51艘、摧毁90%导弹/80%无人机发射装置。
+                （注：此为美方单方面数据，未经独立验证）
+            </div>
+            <div class="source">📎 知乎战情通报</div>
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h3>伊朗反击行动</h3>
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-iran">伊朗</span>
+                <span class="event-time">3月29日</span>
+            </div>
+            <div class="event-title">"真实承诺-4"行动第86波攻势</div>
+            <div class="event-detail">
+                伊斯兰革命卫队发动第86波攻势，声称对中东美军军事设施和第五舰队设施实施精准打击。
+                声称在对沙特苏丹王子空军基地的打击中摧毁一架E-3"哨兵"预警机。
+                使用导弹和无人机打击阿联酋、巴林境内与美国相关的铝厂，以及两家美军工航天企业。
+            </div>
+            <div class="source">📎 新华网战事速览（29日）</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-iran">伊朗</span>
+                <span class="event-time">3月28日</span>
+            </div>
+            <div class="event-title">打击阿联酋铝业设施 + 巴林冶炼厂</div>
+            <div class="event-detail">
+                阿联酋全球铝业公司 (EGA) Al Taweelah 设施遭"重大破坏"，员工受伤。
+                坠落碎片导致哈利法经济区附近三起火灾，6人受伤。巴林铝冶炼厂 (ALBA) 遭袭，
+                2名员工轻伤。
+            </div>
+            <div class="source">📎 CNN / 新华网</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-iran">伊朗</span>
+                <span class="event-time">3月29日</span>
+            </div>
+            <div class="event-title">以色列贝尔谢巴遭导弹击中，"危险物质泄漏"</div>
+            <div class="event-detail">
+                以色列南部城市贝尔谢巴一处工业区遭伊朗导弹击中，现场起火并有"危险物质泄漏"报告。
+            </div>
+            <div class="source">📎 新华网战事速览（29日）</div>
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h3>代理人战线</h3>
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-houthis">胡塞武装</span>
+                <span class="event-time">3月28-29日</span>
+            </div>
+            <div class="event-title">胡塞武装发射弹道导弹+巡航导弹攻击以色列</div>
+            <div class="event-detail">
+                首次直接向以色列发射弹道导弹（首轮军事行动），随后发射巡航导弹（第二轮）。
+                以色列称全部拦截。联合国敦促胡塞武装停止进一步卷入冲突。
+            </div>
+            <div class="source">📎 CNN / 联合国</div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <span class="tag tag-gcc">科威特</span>
+                <span class="event-time">3月28日</span>
+            </div>
+            <div class="event-title">科威特国际机场油罐遭无人机袭击</div>
+            <div class="event-detail">
+                科威特国际机场油罐遭无人机袭击引发大火，严重损坏机场雷达系统，未造成人员伤亡。
+            </div>
+            <div class="source">📎 CNN</div>
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h3>兵力部署变化</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>部署</th>
+                    <th>详情</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>USS Tripoli 两栖攻击舰</td>
+                    <td>约3,500名海军陆战队员（第31MEU）抵达中东</td>
+                    <td>3月27日</td>
+                </tr>
+                <tr>
+                    <td>第82空降师</td>
+                    <td>伞兵部队已进驻中东</td>
+                    <td>此前已部署</td>
+                </tr>
+                <tr>
+                    <td>林肯号航母编队</td>
+                    <td>在波斯湾海域活动，被伊朗实时监控</td>
+                    <td>持续部署中</td>
+                </tr>
+                <tr>
+                    <td>拟增派地面部队</td>
+                    <td class="highlight-red">至多10,000名，含步兵与装甲力量</td>
+                    <td>筹备中</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ====== 外交与政治 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-green">🤝</div>
+        <h2>外交与政治 Diplomacy & Politics</h2>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-diplomacy">外交斡旋</span>
+        </div>
+        <div class="event-title">巴基斯坦四国外长会议</div>
+        <div class="event-detail">
+            巴基斯坦、土耳其、埃及和沙特阿拉伯四国外长在伊斯兰堡举行会议，讨论缓和局势及促进地区稳定。
+            巴基斯坦成功斡旋伊朗同意20艘巴船只通过霍尔木兹海峡（每天2艘）。
+        </div>
+        <div class="source">📎 新华网</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-iran">伊朗立场</span>
+        </div>
+        <div class="event-title">伊朗六条停战条件（3月22日公布）</div>
+        <div class="event-detail">
+            <ol style="padding-left:20px;font-size:14px;">
+                <li>保证战争不再发生（永久安全承诺）</li>
+                <li>关闭美国在中东地区的军事基地</li>
+                <li>侵略方向伊朗支付战争赔偿</li>
+                <li>结束该地区所有战线的战事</li>
+                <li>为霍尔木兹海峡建立新的法律体系</li>
+                <li>审判并移交从事反伊朗活动的媒体人员</li>
+            </ol>
+            分析指出，这六条远超"停止冲突"范畴，是一份重塑中东秩序的方案。
+        </div>
+        <div class="source">📎 腾讯新闻 / NPR</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-diplomacy">美国立场</span>
+        </div>
+        <div class="event-title">美国15项停战条件 + 特朗普延期霍尔木兹海峡通航最后期限</div>
+        <div class="event-detail">
+            美方条件要求伊朗放弃铀浓缩、关闭核设施、导弹能力限制、切断与地区盟友联系等。
+            特朗普将伊朗重开霍尔木兹海峡的最后期限延至4月6日。
+        </div>
+        <div class="source">📎 AP News / 央视网</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-us">美国国内</span>
+        </div>
+        <div class="event-title">美国多地爆发反战示威</div>
+        <div class="event-detail">
+            数百万民众抗议特朗普政府的移民执法政策，并呼吁结束对伊朗的军事打击。
+            特拉维夫也爆发了自冲突开始以来规模最大的反战抗议（约1,200人参加）。
+        </div>
+        <div class="source">📎 新华网 / CNN</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-russia">俄罗斯</span>
+        </div>
+        <div class="event-title">泽连斯基称俄罗斯正为伊朗监视美军基地</div>
+        <div class="event-detail">
+            乌克兰总统泽连斯基表示，情报显示俄罗斯正在为伊朗监视美国在中东和波斯湾的基地，
+            包括科威特、卡塔尔、土耳其、沙特阿拉伯的基地，以及迪戈加西亚的美英联合基地。
+        </div>
+        <div class="source">📎 CNN</div>
+    </div>
+</div>
+
+<!-- ====== 人道影响 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon" style="background:#ad1457;">🏥</div>
+        <h2>人道影响 Humanitarian Impact</h2>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>地区</th>
+                <th>累计死亡</th>
+                <th>关键信息</th>
+                <th>来源</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="highlight-red">伊朗</td>
+                <td class="highlight-red">≥1,900人</td>
+                <td>德黑兰居民区、大学校园遭袭</td>
+                <td>CNN</td>
+            </tr>
+            <tr>
+                <td class="highlight-red">黎巴嫩</td>
+                <td class="highlight-red">≥1,189人</td>
+                <td>含124名儿童；4家医院关闭</td>
+                <td>CNN / WHO</td>
+            </tr>
+            <tr>
+                <td class="highlight-orange">伊拉克</td>
+                <td class="highlight-orange">≥99人</td>
+                <td>库尔德斯坦地区至少13人</td>
+                <td>CNN</td>
+            </tr>
+            <tr>
+                <td>以色列</td>
+                <td>19平民 + 4士兵</td>
+                <td>贝尔谢巴遭导弹击中</td>
+                <td>CNN / 新华网</td>
+            </tr>
+            <tr>
+                <td>美国</td>
+                <td>13名士兵</td>
+                <td>—</td>
+                <td>CNN</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="subsection">
+        <h3>医疗系统状况</h3>
+        <ul style="padding-left:20px;font-size:14px;color:#424242;">
+            <li>黎巴嫩南部4家医院和50+初级医疗中心被迫关闭</li>
+            <li>WHO称3月28日为"本月医疗人员最致命的一天"（9名护理人员遇难）</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ====== 经济影响 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-orange">💰</div>
+        <h2>经济影响 Economic Impact</h2>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-gcc">铝供应</span>
+        </div>
+        <div class="event-title">中东地区铝业设施遭系统性打击</div>
+        <div class="event-detail">
+            阿联酋EGA（全球最大铝企之一）Al Taweelah设施遭"重大破坏"，
+            巴林ALBA冶炼厂遭袭。中东地区约占全球铝供应量的9%，
+            对全球铝供应链构成显著威胁。
+        </div>
+        <div class="source">📎 CNN</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-iran">霍尔木兹海峡</span>
+        </div>
+        <div class="event-title">海峡通行受限，全球能源运输面临威胁</div>
+        <div class="event-detail">
+            霍尔木兹海峡承担全球约20%石油贸易的运输。通行已受限，
+            特朗普将伊朗重开海峡的最后期限延至4月6日。
+            巴基斯坦斡旋促成每天2艘巴船只通过。
+        </div>
+        <div class="source">📎 AP News / 新华网</div>
+    </div>
+
+    <div class="event-card">
+        <div class="event-header">
+            <span class="tag tag-gcc">航空</span>
+        </div>
+        <div class="event-title">科威特国际机场雷达系统遭破坏</div>
+        <div class="event-detail">
+            无人机袭击导致科威特国际机场油罐起火，雷达系统严重损坏，
+            影响该地区航空运输安全。
+        </div>
+        <div class="source">📎 CNN</div>
+    </div>
+</div>
+
+<!-- ====== 风险信号 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-orange">⚠️</div>
+        <h2>风险信号 Watchlist</h2>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-high">高风险 HIGH</span>
+        <div class="risk-title">美军地面入侵即将启动？</div>
+        <div class="risk-detail">
+            五角大楼"尖刀斩首"方案已进入筹备阶段，第31MEU和第82空降师就位。
+            如获特朗普批准，将标志着战争进入全新阶段。
+            哈尔克岛（伊朗90%石油出口枢纽）为主要目标。
+        </div>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-high">高风险 HIGH</span>
+        <div class="risk-title">美航母与伊朗反舰导弹的直接对抗</div>
+        <div class="risk-detail">
+            伊朗公开威胁击沉林肯号航母，双方军事擦枪走火风险极高。
+            伊朗已向4000公里外的迪戈加西亚发射过中程弹道导弹，展示远程打击能力。
+        </div>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-medium">中风险 MEDIUM</span>
+        <div class="risk-title">胡塞武装扩大参战规模</div>
+        <div class="risk-detail">
+            胡塞武装已发射两轮导弹并誓言继续行动。若扩大至红海航运大规模封锁，
+            将对全球贸易产生连锁反应。
+        </div>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-medium">中风险 MEDIUM</span>
+        <div class="risk-title">核设施安全风险</div>
+        <div class="risk-detail">
+            伊朗称导弹已命中迪莫纳核研究设施（以方未承认）。
+            美以联军空袭目标日益接近核相关设施。
+            IAEA此前表示"未发现伊朗核武制造计划"，但核设施遭打击可能引发辐射风险。
+        </div>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-medium">中风险 MEDIUM</span>
+        <div class="risk-title">4月6日 — 霍尔木兹海峡最后期限</div>
+        <div class="risk-detail">
+            特朗普将期限延至4月6日。若届时伊朗未重开海峡，美方可能采取军事行动夺取控制权，
+            这将极大升级冲突烈度。
+        </div>
+    </div>
+
+    <div class="risk-card">
+        <span class="risk-level risk-low">关注 LOW</span>
+        <div class="risk-title">伊朗对美军/以军大学校园的报复威胁</div>
+        <div class="risk-detail">
+            IRGC威胁将打击美国和以色列在地区的大学校园（如卡塔尔的德州农工大学、
+            纽约大学阿布扎比分校），要求美政府3月30日前谴责对伊朗大学的袭击。
+        </div>
+    </div>
+</div>
+
+<!-- ====== 累计数据 ====== -->
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-info">📈</div>
+        <h2>累计数据 Day 30 Statistics</h2>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>指标</th>
+                <th>数据</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>战争持续时间</td>
+                <td class="highlight-red">30天</td>
+                <td>2026年2月28日至今</td>
+            </tr>
+            <tr>
+                <td>波及国家/地区</td>
+                <td class="highlight-orange">10+</td>
+                <td>伊朗、以色列、美国、黎巴嫩、伊拉克、也门、科威特、巴林、阿联酋、沙特等</td>
+            </tr>
+            <tr>
+                <td>伊朗"真实承诺-4"行动</td>
+                <td>86波攻势</td>
+                <td>仍在持续</td>
+            </tr>
+            <tr>
+                <td>美方声称打击目标</td>
+                <td>5,000+</td>
+                <td>含击沉舰艇51艘（美方数据，未独立验证）</td>
+            </tr>
+            <tr>
+                <td>以军过去两天打击目标</td>
+                <td>250+</td>
+                <td>伊朗+黎巴嫩</td>
+            </tr>
+            <tr>
+                <td>累计死亡</td>
+                <td class="highlight-red">≥3,200+</td>
+                <td>伊朗≥1,900 + 黎巴嫩≥1,189 + 伊拉克≥99 + 以色列23 + 美国13</td>
+            </tr>
+            <tr>
+                <td>美军增兵规模</td>
+                <td>3,500已到 + 10,000拟增</td>
+                <td>第31MEU + 第82空降师</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ====== 免责声明 ====== -->
+<div class="disclaimer">
+    <strong>📋 免责声明</strong><br>
+    本日报基于公开可获取的信源编制，旨在提供客观的事实性情报汇总。所有伤亡数据和军事行动声明均标注来源，
+    实际情况以各方官方最终公布为准。本日报不构成任何投资、政策或行动建议。
+    信源包括：新华社、央视、CNN、AP News、NPR、中华网军事、知乎、雪球、腾讯新闻等。
+</div>
+
+</div>
+
+<div class="footer">
+    <p>美以伊战争情报日报 — 基于五步情报方法论自动生成</p>
+    <p>Step 1: 明确覆盖范围 → Step 2: 定义排除规则 → Step 3: 规定信源标准 → Step 4: 设定输出模板 → Step 5: 自动化分发</p>
+    <p style="margin-top:8px;">Generated on 2026-03-30 | <a href="#">Methodology Reference</a></p>
+</div>
+
+</body>
+</html>
