@@ -1,0 +1,204 @@
+{
+  "version": "1.0.0",
+  "name": "US-Israel-Iran War Intelligence Daily",
+  "description": "美以伊战争情报日报 — 基于文章第8点五步方法论构建",
+  "methodology_note": "本文档是系统的'情报宪法'，定义了覆盖范围、排除规则、信源标准、时间窗口和输出模板",
+
+  "Step1_Coverage": {
+    "title": "明确覆盖范围 — 我们关心哪些信源和实体",
+    "primary_actors": [
+      "美国 (US) — 军事行动、政策表态、兵力部署、国内反应",
+      "以色列 (Israel) — 空袭行动、国防决策、北部战线、国内安全",
+      "伊朗 (Iran) — 导弹打击、核设施状态、革命卫队动态、外交立场"
+    ],
+    "secondary_actors": [
+      "也门胡塞武装 (Houthis) — 导弹/无人机袭击、红海航运威胁",
+      "真主党 (Hezbollah) — 黎巴嫩南部战线、对以袭击",
+      "伊拉克 (Iraq) — 领土遭波及、美军基地安全、库尔德地区",
+      "海湾合作委员会 (GCC) — 沙特、阿联酋、巴林、科威特、卡塔尔的军事/经济影响",
+      "巴基斯坦 — 外交斡旋角色、霍尔木兹海峡通行",
+      "俄罗斯 — 情报支持、地缘博弈",
+      "联合国/国际组织 — 人道主义、外交调停"
+    ],
+    "domains": [
+      "军事行动（空袭、导弹打击、地面部署、海战）",
+      "外交谈判（停火条件、和平方案、第三方斡旋）",
+      "人道主义（伤亡统计、难民、基础设施破坏、医疗系统）",
+      "经济影响（油价、航运、供应链、地区产业）",
+      "战略研判（战局趋势、风险升级信号、各方意图分析）"
+    ],
+    "source_languages": ["中文", "英文"],
+    "source_categories": [
+      "权威通讯社：新华社、央视、CNN、BBC、Reuters、AP",
+      "专业军事媒体：中华网军事、GlobalSecurity.org、ISW",
+      "深度分析平台：知乎、雪球、Just Security",
+      "官方声明：国防部门、外交部、军方发言人"
+    ]
+  },
+
+  "Step2_Exclusion": {
+    "title": "定义排除规则 — 什么不要",
+    "exclude_content": [
+      "未经证实的社交媒体传言（无权威信源交叉验证）",
+      "纯情绪化评论、煽动性标题党",
+      "与当前战争无直接关系的泛中东地缘政治评论",
+      "历史回顾类文章（除非包含对当前局势的关键分析）",
+      "重复报道同一事件的冗余信息（取最权威信源）",
+      "广告、推广内容",
+      "预测性内容缺乏依据的（如'某专家预测X日期结束战争'）",
+      "非一手信源的二次加工文章（如自媒体搬运翻译）"
+    ],
+    "exclude_sources": [
+      "不明来源的自媒体号（无官方认证）",
+      "已被证实发布虚假信息的来源",
+      "军事游戏/模拟类内容"
+    ],
+    "time_rules": {
+      "information_window": "优先24小时内新信息",
+      "acceptable_window": "48小时内的重要事件可收录",
+      "hard_cutoff": "超过72小时的信息，除非是具有里程碑意义的转折事件，否则排除"
+    }
+  },
+
+  "Step3_SourceStandards": {
+    "title": "规定信源标准 — 只要一手",
+    "tier1_primary": {
+      "level": "Tier 1 — 一手信源（最高优先级）",
+      "sources": [
+        "新华社/央视国际时讯",
+        "CNN、Reuters、AP、BBC 原发报道",
+        "美军中央司令部 (CENTCOM) 官方声明",
+        "以色列国防军 (IDF) 官方声明",
+        "伊朗伊斯兰革命卫队 (IRGC) 官方声明",
+        "联合国官方通报",
+        "各国国防部/外交部官方声明"
+      ],
+      "rule": "直接引用原文，标注发布时间和来源"
+    },
+    "tier2_authoritative": {
+      "level": "Tier 2 — 权威分析信源",
+      "sources": [
+        "ISW（战争研究所）",
+        "GlobalSecurity.org",
+        "CNN/BBC/Reuters 深度分析",
+        "新华社深度分析",
+        "Just Security 学术分析",
+        "各国智库报告"
+      ],
+      "rule": "可以引用分析结论，但需标注为'分析观点'"
+    },
+    "tier3_supplementary": {
+      "level": "Tier 3 — 补充信源（需交叉验证）",
+      "sources": [
+        "知乎深度专栏",
+        "雪球专业分析",
+        "地方媒体报道的现场信息",
+        "社交媒体上的现场视频/照片（经权威信源确认后）"
+      ],
+      "rule": "仅作为补充，需至少一个 Tier 1 信源佐证"
+    },
+    "cross_validation": "所有军事行动信息必须至少有两个独立来源交叉验证后才能确认"
+  },
+
+  "Step4_OutputTemplate": {
+    "title": "设定输出模板 — 结构化、可行动",
+    "sections": [
+      {
+        "id": "situation_overview",
+        "title": "局势总览",
+        "description": "100字以内的当日核心态势概述",
+        "format": "paragraph"
+      },
+      {
+        "id": "key_developments",
+        "title": "核心动态（Top Signals）",
+        "description": "当日最重大的3-5条战事/外交动态，每条含时间、地点、行动方、具体内容、影响评估",
+        "format": "numbered_list_with_source_links"
+      },
+      {
+        "id": "military_operations",
+        "title": "军事行动（Military Operations）",
+        "description": "详细军事动态：空袭、导弹打击、地面部署、海上行动，按行动方分类",
+        "subsections": [
+          "美以军事行动",
+          "伊朗反击行动",
+          "代理人战线（胡塞/真主党/民兵）",
+          "兵力部署变化"
+        ],
+        "format": "categorized_list"
+      },
+      {
+        "id": "diplomacy_and_politics",
+        "title": "外交与政治（Diplomacy & Politics）",
+        "description": "停火谈判进展、各方表态、国际调停、联合国行动",
+        "format": "list"
+      },
+      {
+        "id": "humanitarian_impact",
+        "title": "人道影响（Humanitarian Impact）",
+        "description": "累计伤亡数据、基础设施破坏、难民情况、医疗系统状态",
+        "format": "data_table_and_summary"
+      },
+      {
+        "id": "economic_impact",
+        "title": "经济影响（Economic Impact）",
+        "description": "油价变化、航运影响、地区产业打击、全球供应链",
+        "format": "data_and_analysis"
+      },
+      {
+        "id": "risk_signals",
+        "title": "风险信号（Watchlist）",
+        "description": "值得持续跟踪但尚未定论的事态发展、升级风险指标",
+        "format": "alert_list"
+      },
+      {
+        "id": "cumulative_statistics",
+        "title": "累计数据（Day N 统计）",
+        "description": "开战以来的关键累计数据",
+        "format": "table"
+      }
+    ],
+    "language": "中文为主，关键术语附英文原文",
+    "tone": "客观、冷静、基于事实，不做情绪化判断",
+    "actionability": "每条信息需回答：发生了什么？谁做的？意味着什么？下一步可能怎样？"
+  },
+
+  "Step5_Distribution": {
+    "title": "自动化分发 — 推送到消费场景",
+    "channels": [
+      {
+        "type": "markdown_summary",
+        "target": "企业微信 Webhook",
+        "constraint": "4096字节（中文约1365字），需精简为摘要版",
+        "content": "局势总览 + 核心动态 + 风险信号"
+      },
+      {
+        "type": "html_full_report",
+        "target": "本地 HTML 文件 / GitHub Pages",
+        "constraint": "无字数限制，包含完整信息和来源链接",
+        "content": "所有板块完整内容"
+      },
+      {
+        "type": "json_structured",
+        "target": "API / 数据库存储",
+        "constraint": "结构化 JSON，便于后续分析和聚合",
+        "content": "所有数据的结构化格式"
+      }
+    ]
+  },
+
+  "quality_rules": {
+    "minimum_sources_per_day": 5,
+    "cross_validation_required": true,
+    "no_single_source_claims": "任何重大军事行动声明，至少需两个独立来源验证",
+    "timestamp_precision": "所有事件必须标注可确认的时间（精确到小时）",
+    "casualty_disclaimer": "伤亡数据必须标注来源，并注明'以官方公布为准'",
+    "escalation_markers": [
+      "地面入侵启动",
+      "核设施遭打击或辐射泄漏",
+      "霍尔木兹海峡被封锁",
+      "大国直接军事介入",
+      "大规模化学/生物武器使用"
+    ]
+  }
+}
