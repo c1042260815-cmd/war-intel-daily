@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>霍尔木兹海峡航运追踪 | 2026年04月</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #0a0a0f; color: #e0e0e0; line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 30px 40px; border-bottom: 2px solid #e94560;
+        }
+        .header h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
+        .header .subtitle { color: #a0a0b0; font-size: 14px; }
+        .header .last-update { color: #e94560; font-size: 13px; margin-top: 4px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+        .summary-card {
+            background: #141422; border: 1px solid #2a2a3e; border-radius: 12px;
+            padding: 20px; text-align: center; transition: transform 0.2s;
+        }
+        .summary-card:hover { transform: translateY(-2px); border-color: #e94560; }
+        .summary-card .label { color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .summary-card .value { font-size: 32px; font-weight: 700; margin: 8px 0; }
+        .summary-card .value.red { color: #e94560; }
+        .summary-card .value.orange { color: #f0a500; }
+        .summary-card .value.green { color: #00c9a7; }
+        .summary-card .value.blue { color: #4da6ff; }
+        .summary-card .note { font-size: 12px; color: #666; }
+        .chart-section {
+            background: #141422; border: 1px solid #2a2a3e; border-radius: 12px;
+            padding: 24px; margin: 24px 0;
+        }
+        .chart-section h2 {
+            font-size: 18px; color: #fff; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid #2a2a3e;
+        }
+        .chart-container { position: relative; height: 400px; width: 100%; }
+        .chart-container.tall { height: 500px; }
+        .data-table-wrapper { overflow-x: auto; margin: 24px 0; }
+        table {
+            width: 100%; border-collapse: collapse; background: #141422;
+            border-radius: 12px; overflow: hidden;
+        }
+        thead th {
+            background: #1a1a2e; color: #a0a0c0; font-size: 12px; text-transform: uppercase;
+            letter-spacing: 1px; padding: 14px 12px; text-align: center;
+            border-bottom: 2px solid #2a2a3e; position: sticky; top: 0;
+        }
+        tbody td {
+            padding: 10px 12px; text-align: center;
+            border-bottom: 1px solid #1e1e30; font-size: 14px;
+        }
+        tbody tr:hover { background: #1a1a2e; }
+        .day-cell { font-weight: 600; color: #fff; text-align: left; padding-left: 16px; }
+        .phase-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .phase-tag.sharp { background: #e94560; color: #fff; }
+        .phase-tag.decline { background: #f0a500; color: #000; }
+        .phase-tag.near-zero { background: #6c0000; color: #ff6666; }
+        .phase-tag.controlled { background: #1a5c2a; color: #66ff88; }
+        .phase-tag.normal { background: #1a3a5c; color: #66aaff; }
+        .val-zero { color: #e94560; font-weight: 700; }
+        .val-low { color: #f0a500; }
+        .val-normal { color: #00c9a7; }
+        .val-high { color: #4da6ff; }
+        .timeline { margin: 24px 0; }
+        .timeline-item {
+            display: flex; gap: 16px; padding: 12px 0;
+            border-left: 2px solid #2a2a3e; padding-left: 20px; position: relative;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -6px; top: 16px;
+            width: 10px; height: 10px; border-radius: 50%; background: #e94560;
+        }
+        .timeline-date { min-width: 100px; color: #888; font-size: 13px; font-weight: 600; }
+        .timeline-content { flex: 1; }
+        .timeline-title { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+        .timeline-desc { color: #888; font-size: 13px; }
+        .sources { margin-top: 30px; padding-top: 20px; border-top: 1px solid #2a2a3e; color: #555; font-size: 12px; }
+        .section-title {
+            font-size: 20px; color: #fff; margin: 30px 0 16px;
+            padding-left: 12px; border-left: 3px solid #e94560;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>⚓ 霍尔木兹海峡航运追踪报告</h1>
+    <div class="subtitle">Strait of Hormuz Shipping Traffic Tracker — 2026年04月</div>
+    <div class="last-update">数据截至: 2026-04-01 | 冲突第33天 | 海峡状态: 🔴 管控通行</div>
+</div>
+
+<div class="container">
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="label">冲突前日均</div>
+            <div class="value blue">~138</div>
+            <div class="note">艘/天 (2026年2月)</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">当月日均</div>
+            <div class="value red">~4.0</div>
+            <div class="note">艘/天 (暴跌97.1%)</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">当月累计通行</div>
+            <div class="value orange">~4</div>
+            <div class="note">艘</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">被困船只</div>
+            <div class="value red">~2000</div>
+            <div class="note">艘 | ~20000船员</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">与伊朗关联</div>
+            <div class="value red">67%</div>
+            <div class="note">通行船只中占比</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">石油运输</div>
+            <div class="value orange">~100万</div>
+            <div class="note">桶/天 (正常2000万)</div>
+        </div>
+    </div>
+
+    <div class="chart-section">
+        <h2>📊 每日通行量趋势图</h2>
+        <div class="chart-container tall">
+            <canvas id="dailyTrafficChart"></canvas>
+        </div>
+    </div>
+
+    <div class="chart-section">
+        <h2>📈 当月累计通行量 vs 正常水平</h2>
+        <div class="chart-container">
+            <canvas id="cumulativeChart"></canvas>
+        </div>
+    </div>
+
+    <h3 class="section-title">📋 每日通行数据明细</h3>
+    <div class="data-table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>日期</th><th>Day</th><th>阶段</th><th>通行船只</th>
+                    <th>原油/成品油轮</th><th>集装箱/散货</th><th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+    <td class="day-cell">4月1日</td><td>D+33</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>海峡持续管控通行</td>
+</tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="section-title">📅 关键事件时间线</h3>
+    <div class="timeline">
+        <div class="timeline-item">
+    <div class="timeline-date">2月28日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🚨 美以对伊开战，海峡封锁</div>
+        <div class="timeline-desc">美以军事打击伊朗，伊朗当晚宣布禁止任何船只通过海峡</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月1-3日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📉 通行量断崖式下跌</div>
+        <div class="timeline-desc">从日均138艘暴跌至日均6-7艘，保险公司撤销战争险</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月7日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🚢 三大航运巨头暂停订舱</div>
+        <div class="timeline-desc">COSCO、Maersk、MSC全面暂停霍尔木兹航线订舱</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月14日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">⚫ 通航量首次归零</div>
+        <div class="timeline-desc">没有船舶通过海峡，集装箱船通行完全归零</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月19日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🛡️ 七国联护航队部署</div>
+        <div class="timeline-desc">英美法德意荷日加七国联合护航队抵达海湾</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月24日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📊 新华网通报通航暴跌逾九成</div>
+        <div class="timeline-desc">3月1-23日仅144次通航，其中91次为油气船</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月26日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📋 伊朗推行管控系统</div>
+        <div class="timeline-desc">要求过往船只提交文件、获取通行代码，接受伊方护航</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月27日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🔒 革命卫队声明关闭海峡</div>
+        <div class="timeline-desc">3月累计158艘通行，67%与伊朗关联</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月28日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🤝 多国就通行与伊朗达成协议</div>
+        <div class="timeline-desc">泰国、马来西亚就油轮通行与伊朗达成双边协议</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月30日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📋 特朗普延期海峡期限至4月6日</div>
+        <div class="timeline-desc">威胁若4月6日不重开将采取行动</div>
+    </div>
+</div>
+
+    </div>
+
+    <div class="chart-section">
+        <h2>ℹ️ 数据来源与说明</h2>
+        <div style="color: #a0a0b0; font-size: 14px; line-height: 1.8;">
+            <p><b>数据来源：</b></p>
+            <ul style="padding-left: 20px; margin-top: 8px;">
+                <li>IMF PortWatch — 全球港口监测数据</li>
+                <li>Project44 / 船视宝 — AIS船舶追踪平台</li>
+                <li>AXSMarine (Signal Group) — 专业航运数据分析</li>
+                <li>新华社 / CCTV / 劳埃德船舶日报 — 权威新闻报道</li>
+                <li>WTO Data Lab — 霍尔木兹海峡贸易追踪器</li>
+                <li>Seavantage / HormuzTracker — 实时航运监测</li>
+            </ul>
+            <p style="margin-top: 16px;"><b>重要说明：</b></p>
+            <ul style="padding-left: 20px; margin-top: 8px;">
+                <li>数据基于AIS（船舶自动识别系统）追踪，未开启AIS的船只不计入</li>
+                <li>3月中旬后通行的船只约67%与伊朗直接关联，多数为影子船队</li>
+                <li>本报告中部分日期为基于累计数据反推的估算值（标注~号）</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sources">
+        数据来源: IMF PortWatch, Project44, 船视宝, AXSMarine, 新华社, CCTV, 劳埃德船舶日报, WTO Data Lab, Seavantage | 生成时间: 2026-04-01
+    </div>
+</div>
+
+<script>
+const dailyData = {
+    labels: ["4/1"],
+    total:   [4],
+    oilTanker: [3],
+    other:    [1]
+};
+
+const ctx1 = document.getElementById('dailyTrafficChart').getContext('2d');
+new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: dailyData.labels,
+        datasets: [
+            {
+                label: '原油/成品油轮',
+                data: dailyData.oilTanker,
+                backgroundColor: 'rgba(233, 69, 96, 0.8)',
+                borderColor: '#e94560', borderWidth: 1, stack: 'stack0'
+            },
+            {
+                label: '集装箱/散货/其他',
+                data: dailyData.other,
+                backgroundColor: 'rgba(77, 166, 255, 0.8)',
+                borderColor: '#4da6ff', borderWidth: 1, stack: 'stack0'
+            },
+            {
+                label: '正常日均基线 (138艘)',
+                data: Array(1).fill(138),
+                type: 'line',
+                borderColor: '#00c9a7', borderWidth: 2, borderDash: [8, 4],
+                pointRadius: 0, fill: false, stack: 'stack1'
+            }
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { labels: { color: '#a0a0b0', font: { size: 12 } } },
+            tooltip: { backgroundColor: '#1a1a2e', titleColor: '#fff', bodyColor: '#ccc', borderColor: '#2a2a3e', borderWidth: 1 }
+        },
+        scales: {
+            x: { stacked: true, ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 }, grid: { color: '#1e1e30' } },
+            y: { stacked: true, title: { display: true, text: '通行船只数量 (艘)', color: '#888' },
+                 ticks: { color: '#888' }, grid: { color: '#1e1e30' }, min: 0, max: 160 }
+        }
+    }
+});
+
+const cumulativeActual = [];
+const cumulativeNormal = [];
+let sumActual = 0, sumNormal = 0;
+dailyData.total.forEach((v) => {
+    sumActual += v; cumulativeActual.push(sumActual);
+    sumNormal += 138; cumulativeNormal.push(sumNormal);
+});
+
+const ctx2 = document.getElementById('cumulativeChart').getContext('2d');
+new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: dailyData.labels,
+        datasets: [
+            {
+                label: '实际累计通行量',
+                data: cumulativeActual,
+                borderColor: '#e94560', backgroundColor: 'rgba(233, 69, 96, 0.1)',
+                fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#e94560'
+            },
+            {
+                label: '正常水平累计 (按138艘/天)',
+                data: cumulativeNormal,
+                borderColor: '#00c9a7', backgroundColor: 'rgba(0, 201, 167, 0.05)',
+                fill: true, tension: 0.3, pointRadius: 0, borderDash: [5, 3]
+            }
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { labels: { color: '#a0a0b0', font: { size: 12 } } },
+            tooltip: {
+                backgroundColor: '#1a1a2e', titleColor: '#fff', bodyColor: '#ccc', borderColor: '#2a2a3e', borderWidth: 1,
+                callbacks: {
+                    afterBody: function(tooltipItems) {
+                        const actual = tooltipItems[0].raw;
+                        const normal = tooltipItems[1].raw;
+                        const pct = ((1 - actual / normal) * 100).toFixed(1);
+                        return `缺口: ${normal - actual}艘 | 降幅: ${pct}%`;
+                    }
+                }
+            }
+        },
+        scales: {
+            x: { ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 }, grid: { color: '#1e1e30' } },
+            y: { title: { display: true, text: '累计通行量 (艘)', color: '#888' },
+                 ticks: { color: '#888' }, grid: { color: '#1e1e30' } }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

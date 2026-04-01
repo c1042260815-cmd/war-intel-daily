@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美以伊战争情报日报 — 2026-04-01 (Day 33)</title>
+    <style>
+        :root {
+            --primary: #1a237e;
+            --accent: #c62828;
+            --warning: #e65100;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text: #212121;
+            --text-secondary: #616161;
+            --border: #e0e0e0;
+            --success: #2e7d32;
+            --info: #0277bd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(135deg, #0d1b3e 0%, #1a237e 50%, #283593 100%);
+            color: white; padding: 40px 20px 30px; text-align: center;
+        }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: 2px; }
+        .header .subtitle { font-size: 14px; opacity: 0.85; margin-bottom: 16px; }
+        .header .meta { display: flex; justify-content: center; gap: 24px; font-size: 13px; opacity: 0.75; }
+        .header .meta span { display: flex; align-items: center; gap: 4px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .situation-overview {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid var(--warning); padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .situation-overview h2 { font-size: 16px; color: var(--warning); margin-bottom: 10px; }
+        .situation-overview p { font-size: 15px; color: #4e342e; font-weight: 500; }
+        .section {
+            background: var(--card-bg); border-radius: 10px; padding: 24px; margin: 16px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .section-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+            padding-bottom: 12px; border-bottom: 2px solid var(--border);
+        }
+        .section-header .icon {
+            width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center;
+            justify-content: center; font-size: 16px; color: white; flex-shrink: 0;
+        }
+        .section-header h2 { font-size: 18px; font-weight: 600; }
+        .icon-red { background: var(--accent); }
+        .icon-blue { background: var(--primary); }
+        .icon-orange { background: var(--warning); }
+        .icon-green { background: var(--success); }
+        .icon-info { background: var(--info); }
+        .event-card {
+            border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0;
+            background: #fafafa; transition: box-shadow 0.2s;
+        }
+        .event-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .event-card .event-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .event-card .tag {
+            font-size: 11px; padding: 2px 8px; border-radius: 4px; color: white;
+            font-weight: 600; flex-shrink: 0;
+        }
+        .tag-us { background: #1565c0; } .tag-israel { background: #00897b; }
+        .tag-iran { background: #c62828; } .tag-houthis { background: #6a1b9a; }
+        .tag-hezbollah { background: #e65100; } .tag-diplomacy { background: #2e7d32; }
+        .tag-humanitarian { background: #ad1457; } .tag-russia { background: #37474f; }
+        .tag-un { background: #1565c0; } .tag-gcc { background: #bf360c; }
+        .event-card .event-time { font-size: 12px; color: var(--text-secondary); }
+        .event-card .event-title { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+        .event-card .event-detail { font-size: 14px; color: #424242; }
+        .event-card .event-impact {
+            margin-top: 8px; padding: 8px 12px; background: #e3f2fd; border-radius: 6px;
+            font-size: 13px; color: #0d47a1;
+        }
+        .event-card .event-impact strong { color: #1a237e; }
+        .event-card .source { margin-top: 6px; font-size: 12px; color: #9e9e9e; }
+        .subsection { margin: 16px 0; }
+        .subsection h3 {
+            font-size: 15px; font-weight: 600; color: var(--primary); margin-bottom: 10px;
+            padding-left: 10px; border-left: 3px solid var(--primary);
+        }
+        .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+        .data-table th {
+            background: #e8eaf6; padding: 10px 12px; text-align: left; font-weight: 600;
+            color: var(--primary); border-bottom: 2px solid #c5cae9;
+        }
+        .data-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table .highlight-red { color: var(--accent); font-weight: 700; }
+        .data-table .highlight-orange { color: var(--warning); font-weight: 600; }
+        .risk-card {
+            border: 1px solid #ffcc80; border-left: 4px solid var(--warning); background: #fff8e1;
+            border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 10px 0;
+        }
+        .risk-card .risk-level {
+            font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px;
+            color: white; margin-bottom: 6px; display: inline-block;
+        }
+        .risk-high { background: #c62828; } .risk-medium { background: #e65100; }
+        .risk-low { background: #f9a825; color: #333 !important; }
+        .risk-card .risk-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+        .risk-card .risk-detail { font-size: 13px; color: #5d4037; }
+        .escalation-alert {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border: 2px solid var(--accent); border-radius: 10px; padding: 20px; margin: 20px 0;
+        }
+        .escalation-alert h3 { color: var(--accent); font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .disclaimer {
+            background: #fafafa; border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px; margin: 20px 0; font-size: 12px; color: #757575;
+        }
+        .footer { text-align: center; padding: 30px 20px; color: #9e9e9e; font-size: 12px; }
+        @media (max-width: 640px) {
+            .header h1 { font-size: 20px; } .container { padding: 12px; }
+            .section { padding: 16px; } .header .meta { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>⚔️ 美以伊战争情报日报</h1>
+    <div class="subtitle">US-Israel-Iran War Intelligence Daily Brief</div>
+    <div class="meta">
+        <span>📅 2026-04-01</span>
+        <span>⏱ 战争第 33 天</span>
+        <span>🔄 信息截止：2026-04-01 11:50</span>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="situation-overview">
+    <h2>📊 局势总览</h2>
+    <p>战争进入第33天。美以空袭伊斯法罕弹药库、伊朗大型制药企业及宗教场所，伊朗击落MQ-9无人机。美国防部长称"未来几天将起决定性作用"。伊朗议会正式通过海峡管理方案，禁止美以及制裁国船只通行。IMF警告战争正引发"全球冲击"。特朗普称愿在4月6日前达成协议，阿联酋则推动美军地面入侵。</p>
+</div>
+
+<div class="escalation-alert">
+    <h3>🚨 升级预警指标</h3>
+    <div style="display:grid; gap:8px;">
+<p style="color:#888;">暂无预警数据</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-red">🎯</div>
+        <h2>核心动态 Top Signals</h2>
+    </div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">美以空袭伊朗制药企业</div>
+    <div class="event-detail">伊朗一大型抗癌药/麻醉药制药厂3月31日遭空袭破坏，伊方斥为"战争罪和反人类罪"。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">美钻地弹打击伊斯法罕弹药库</div>
+    <div class="event-detail">美军使用2000磅钻地弹打击伊朗中部大型弹药库，引发大规模殉爆。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">伊朗击落MQ-9无人机</div>
+    <div class="event-detail">伊朗防空部队在伊斯法罕上空击落一架美MQ-9"死神"无人机。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">海峡岛屿淡化水厂遭袭</div>
+    <div class="event-detail">美以空袭霍尔木兹海峡伊朗岛屿上的电力与淡化水厂。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">伊朗议会通过海峡管理法案</div>
+    <div class="event-detail">禁止美以及对伊制裁国船只通行，确立军方管控角色。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">科威特海水淡化厂遭袭</div>
+    <div class="event-detail">伊朗打击科威特电力和海水淡化设施，为海湾地区第二次打击水电设施。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">内塔尼亚胡称行动"已过半程"</div>
+    <div class="event-detail">以方重点转向伊朗浓缩铀储备。</div>
+
+</div>
+<div class="event-card">
+    <div class="event-header">
+        <span class="tag tag-us">综合</span>
+        <span class="event-time">2026-04-01</span>
+    </div>
+    <div class="event-title">阿联酋推动美军地面入侵</div>
+    <div class="event-detail">科威特、巴林支持，沙特等国私下敦促美持续施压。</div>
+
+</div>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-blue">⚔️</div>
+        <h2>军事行动 Military Operations</h2>
+    </div>
+<p style="color:#888;">暂无数据</p>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-green">🤝</div>
+        <h2>外交与政治 Diplomacy & Politics</h2>
+    </div>
+<p style="color:#888;">暂无数据</p>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon" style="background:#ad1457;">🏥</div>
+        <h2>人道影响 Humanitarian Impact</h2>
+    </div>
+<p style="color:#888;">暂无数据</p>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-orange">💰</div>
+        <h2>经济影响 Economic Impact</h2>
+    </div>
+<p style="color:#888;">暂无数据</p>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-orange">⚠️</div>
+        <h2>风险信号 Watchlist</h2>
+    </div>
+<div class="risk-card">
+    <span class="risk-level risk-high">🔴 高风险 HIGH</span>
+    <div class="risk-title">特朗普4月6日海峡期限仅剩5天，哈尔克岛打击风险高</div>
+    <div class="risk-detail"></div>
+</div>
+<div class="risk-card">
+    <span class="risk-level risk-high">🔴 高风险 HIGH</span>
+    <div class="risk-title">美以防长称"未来几天起决定性作用"，空袭可能升级</div>
+    <div class="risk-detail"></div>
+</div>
+<div class="risk-card">
+    <span class="risk-level risk-medium">🟡 中风险 MEDIUM</span>
+    <div class="risk-title">海峡水/电设施遭袭，民用基础设施打击范围扩大</div>
+    <div class="risk-detail"></div>
+</div>
+<div class="risk-card">
+    <span class="risk-level risk-medium">🟡 中风险 MEDIUM</span>
+    <div class="risk-title">阿联酋推动地面入侵，战争可能进一步扩大</div>
+    <div class="risk-detail"></div>
+</div>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        <div class="icon icon-info">📈</div>
+        <h2>累计数据 Day 33 Statistics</h2>
+    </div>
+<p style="color:#888;">暂无数据</p>
+</div>
+
+<div class="disclaimer">
+    <strong>📋 免责声明</strong><br>
+    本日报基于公开信源编制，旨在提供客观事实性情报汇总。所有数据标注来源，实际情况以各方官方公布为准。
+    不构成任何投资、政策或行动建议。
+</div>
+
+</div>
+
+<div class="footer">
+    <p>美以伊战争情报日报 — 基于五步情报方法论自动生成</p>
+    <p>Generated on 2026-04-01</p>
+</div>
+
+</body>
+</html>

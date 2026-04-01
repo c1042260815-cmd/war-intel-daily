@@ -1,0 +1,366 @@
+{
+  "daily": [
+    {
+      "date": "3/1",
+      "date_label": "3月1日",
+      "day": "D+1",
+      "total": 12,
+      "oil": 8,
+      "other": 4,
+      "phase": "急降",
+      "note": "伊朗宣布封锁海峡；首轮空袭后恐慌性下降"
+    },
+    {
+      "date": "3/2",
+      "date_label": "3月2日",
+      "day": "D+2",
+      "total": 8,
+      "oil": 6,
+      "other": 2,
+      "phase": "急降",
+      "note": "主要影子船队油轮冒险通行"
+    },
+    {
+      "date": "3/3",
+      "date_label": "3月3日",
+      "day": "D+3",
+      "total": 7,
+      "oil": 5,
+      "other": 2,
+      "phase": "衰减",
+      "note": "11艘LNG船改道驶向亚洲"
+    },
+    {
+      "date": "3/4",
+      "date_label": "3月4日",
+      "day": "D+4",
+      "total": 6,
+      "oil": 4,
+      "other": 2,
+      "phase": "衰减",
+      "note": "保险公司全面撤销战争险"
+    },
+    {
+      "date": "3/5",
+      "date_label": "3月5日",
+      "day": "D+5",
+      "total": 6,
+      "oil": 4,
+      "other": 2,
+      "phase": "衰减",
+      "note": "战前同期日均110-124艘"
+    },
+    {
+      "date": "3/6",
+      "date_label": "3月6日",
+      "day": "D+6",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "美军增兵海湾地区"
+    },
+    {
+      "date": "3/7",
+      "date_label": "3月7日",
+      "day": "D+7",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "COSCO、Maersk、MSC暂停订舱"
+    },
+    {
+      "date": "3/8",
+      "date_label": "3月8日",
+      "day": "D+8",
+      "total": 5,
+      "oil": 4,
+      "other": 1,
+      "phase": "冰点",
+      "note": "Statista: 3月初日均仅6艘"
+    },
+    {
+      "date": "3/9",
+      "date_label": "3月9日",
+      "day": "D+9",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "海湾至亚洲油轮运价翻3倍"
+    },
+    {
+      "date": "3/10",
+      "date_label": "3月10日",
+      "day": "D+10",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "Seavantage追踪1265+艘海面船只"
+    },
+    {
+      "date": "3/11",
+      "date_label": "3月11日",
+      "day": "D+11",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "3月11-18日仅通行20艘"
+    },
+    {
+      "date": "3/12",
+      "date_label": "3月12日",
+      "day": "D+12",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "冰点",
+      "note": "日军舰进入海湾协防"
+    },
+    {
+      "date": "3/13",
+      "date_label": "3月13日",
+      "day": "D+13",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "SCFI欧洲航线运价涨142%"
+    },
+    {
+      "date": "3/14",
+      "date_label": "3月14日",
+      "day": "D+14",
+      "total": 0,
+      "oil": 0,
+      "other": 0,
+      "phase": "归零",
+      "note": "⭐ 首次归零 集装箱船通行归零"
+    },
+    {
+      "date": "3/15",
+      "date_label": "3月15日",
+      "day": "D+15",
+      "total": 1,
+      "oil": 0,
+      "other": 1,
+      "phase": "归零",
+      "note": "仅有零星影子船队移动"
+    },
+    {
+      "date": "3/16",
+      "date_label": "3月16日",
+      "day": "D+16",
+      "total": 2,
+      "oil": 1,
+      "other": 1,
+      "phase": "冰点",
+      "note": "苏伊士运河通行降至16艘/周"
+    },
+    {
+      "date": "3/17",
+      "date_label": "3月17日",
+      "day": "D+17",
+      "total": 2,
+      "oil": 1,
+      "other": 1,
+      "phase": "冰点",
+      "note": "113艘集装箱船被困红海"
+    },
+    {
+      "date": "3/18",
+      "date_label": "3月18日",
+      "day": "D+18",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "伊朗散货船开始谨慎通行"
+    },
+    {
+      "date": "3/19",
+      "date_label": "3月19日",
+      "day": "D+19",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "七国联护航队抵达海湾"
+    },
+    {
+      "date": "3/20",
+      "date_label": "3月20日",
+      "day": "D+20",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "近24h通航归零；3月累计128艘"
+    },
+    {
+      "date": "3/21",
+      "date_label": "3月21日",
+      "day": "D+21",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "船员被困第20天，缺水断菜"
+    },
+    {
+      "date": "3/22",
+      "date_label": "3月22日",
+      "day": "D+22",
+      "total": 3,
+      "oil": 2,
+      "other": 1,
+      "phase": "冰点",
+      "note": "国际社会呼吁建立安全通道"
+    },
+    {
+      "date": "3/23",
+      "date_label": "3月23日",
+      "day": "D+23",
+      "total": 5,
+      "oil": 3,
+      "other": 2,
+      "phase": "管控",
+      "note": "伊朗散货船阿尔达万号通过"
+    },
+    {
+      "date": "3/24",
+      "date_label": "3月24日",
+      "day": "D+24",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "新华网: 3月1-23日共144次通航"
+    },
+    {
+      "date": "3/25",
+      "date_label": "3月25日",
+      "day": "D+25",
+      "total": 5,
+      "oil": 3,
+      "other": 2,
+      "phase": "管控",
+      "note": "3艘散货船向西通过海峡"
+    },
+    {
+      "date": "3/26",
+      "date_label": "3月26日",
+      "day": "D+26",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "伊朗推行付费通行管控系统"
+    },
+    {
+      "date": "3/27",
+      "date_label": "3月27日",
+      "day": "D+27",
+      "total": 6,
+      "oil": 4,
+      "other": 2,
+      "phase": "管控",
+      "note": "革命卫队声明关闭；近24h通行6艘"
+    },
+    {
+      "date": "3/28",
+      "date_label": "3月28日",
+      "day": "D+28",
+      "total": 5,
+      "oil": 3,
+      "other": 2,
+      "phase": "管控",
+      "note": "泰国、马来西亚就通行与伊朗达成协议"
+    },
+    {
+      "date": "3/29",
+      "date_label": "3月29日",
+      "day": "D+29",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "美军地面战尖刀斩首方案曝光"
+    },
+    {
+      "date": "3/30",
+      "date_label": "3月30日",
+      "day": "D+30",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "海峡持续管控通行"
+    },
+    {
+      "date": "4/1",
+      "date_label": "4月1日",
+      "day": "D+33",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "海峡持续管控通行"
+    }
+  ],
+  "events": [
+    {
+      "date": "2月28日",
+      "title": "🚨 美以对伊开战，海峡封锁",
+      "desc": "美以军事打击伊朗，伊朗当晚宣布禁止任何船只通过海峡"
+    },
+    {
+      "date": "3月1-3日",
+      "title": "📉 通行量断崖式下跌",
+      "desc": "从日均138艘暴跌至日均6-7艘，保险公司撤销战争险"
+    },
+    {
+      "date": "3月7日",
+      "title": "🚢 三大航运巨头暂停订舱",
+      "desc": "COSCO、Maersk、MSC全面暂停霍尔木兹航线订舱"
+    },
+    {
+      "date": "3月14日",
+      "title": "⚫ 通航量首次归零",
+      "desc": "没有船舶通过海峡，集装箱船通行完全归零"
+    },
+    {
+      "date": "3月19日",
+      "title": "🛡️ 七国联护航队部署",
+      "desc": "英美法德意荷日加七国联合护航队抵达海湾"
+    },
+    {
+      "date": "3月24日",
+      "title": "📊 新华网通报通航暴跌逾九成",
+      "desc": "3月1-23日仅144次通航，其中91次为油气船"
+    },
+    {
+      "date": "3月26日",
+      "title": "📋 伊朗推行管控系统",
+      "desc": "要求过往船只提交文件、获取通行代码，接受伊方护航"
+    },
+    {
+      "date": "3月27日",
+      "title": "🔒 革命卫队声明关闭海峡",
+      "desc": "3月累计158艘通行，67%与伊朗关联"
+    },
+    {
+      "date": "3月28日",
+      "title": "🤝 多国就通行与伊朗达成协议",
+      "desc": "泰国、马来西亚就油轮通行与伊朗达成双边协议"
+    },
+    {
+      "date": "3月30日",
+      "title": "📋 特朗普延期海峡期限至4月6日",
+      "desc": "威胁若4月6日不重开将采取行动"
+    }
+  ]
+}
