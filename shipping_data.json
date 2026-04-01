@@ -309,6 +309,16 @@
       "other": 1,
       "phase": "管控",
       "note": "海峡持续管控通行"
+    },
+    {
+      "date": "4/1",
+      "date_label": "4月1日",
+      "day": "D+33",
+      "total": 4,
+      "oil": 3,
+      "other": 1,
+      "phase": "管控",
+      "note": "海峡持续管控通行"
     }
   ],
   "events": [
