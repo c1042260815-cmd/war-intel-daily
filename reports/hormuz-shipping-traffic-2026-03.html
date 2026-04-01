@@ -3,51 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>霍尔木兹海峡航运追踪 | 2026年3月</title>
+    <title>霍尔木兹海峡航运追踪 | 2026年03月</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #0a0a0f;
-            color: #e0e0e0;
-            line-height: 1.6;
+            background: #0a0a0f; color: #e0e0e0; line-height: 1.6;
         }
         .header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 30px 40px;
-            border-bottom: 2px solid #e94560;
+            padding: 30px 40px; border-bottom: 2px solid #e94560;
         }
-        .header h1 {
-            font-size: 28px;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        .header .subtitle {
-            color: #a0a0b0;
-            font-size: 14px;
-        }
-        .header .last-update {
-            color: #e94560;
-            font-size: 13px;
-            margin-top: 4px;
-        }
+        .header h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
+        .header .subtitle { color: #a0a0b0; font-size: 14px; }
+        .header .last-update { color: #e94560; font-size: 13px; margin-top: 4px; }
         .container { max-width: 1400px; margin: 0 auto; padding: 20px 30px; }
-
-        /* 摘要卡片 */
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
         .summary-card {
-            background: #141422;
-            border: 1px solid #2a2a3e;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s;
+            background: #141422; border: 1px solid #2a2a3e; border-radius: 12px;
+            padding: 20px; text-align: center; transition: transform 0.2s;
         }
         .summary-card:hover { transform: translateY(-2px); border-color: #e94560; }
         .summary-card .label { color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
@@ -57,73 +32,33 @@
         .summary-card .value.green { color: #00c9a7; }
         .summary-card .value.blue { color: #4da6ff; }
         .summary-card .note { font-size: 12px; color: #666; }
-
-        /* 图表区 */
         .chart-section {
-            background: #141422;
-            border: 1px solid #2a2a3e;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
+            background: #141422; border: 1px solid #2a2a3e; border-radius: 12px;
+            padding: 24px; margin: 24px 0;
         }
         .chart-section h2 {
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #2a2a3e;
+            font-size: 18px; color: #fff; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid #2a2a3e;
         }
-        .chart-container {
-            position: relative;
-            height: 400px;
-            width: 100%;
-        }
+        .chart-container { position: relative; height: 400px; width: 100%; }
         .chart-container.tall { height: 500px; }
-
-        /* 数据表格 */
-        .data-table-wrapper {
-            overflow-x: auto;
-            margin: 24px 0;
-        }
+        .data-table-wrapper { overflow-x: auto; margin: 24px 0; }
         table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #141422;
-            border-radius: 12px;
-            overflow: hidden;
+            width: 100%; border-collapse: collapse; background: #141422;
+            border-radius: 12px; overflow: hidden;
         }
         thead th {
-            background: #1a1a2e;
-            color: #a0a0c0;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 14px 12px;
-            text-align: center;
-            border-bottom: 2px solid #2a2a3e;
-            position: sticky;
-            top: 0;
+            background: #1a1a2e; color: #a0a0c0; font-size: 12px; text-transform: uppercase;
+            letter-spacing: 1px; padding: 14px 12px; text-align: center;
+            border-bottom: 2px solid #2a2a3e; position: sticky; top: 0;
         }
         tbody td {
-            padding: 10px 12px;
-            text-align: center;
-            border-bottom: 1px solid #1e1e30;
-            font-size: 14px;
+            padding: 10px 12px; text-align: center;
+            border-bottom: 1px solid #1e1e30; font-size: 14px;
         }
         tbody tr:hover { background: #1a1a2e; }
-        .day-cell {
-            font-weight: 600;
-            color: #fff;
-            text-align: left;
-            padding-left: 16px;
-        }
-        .phase-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-        }
+        .day-cell { font-weight: 600; color: #fff; text-align: left; padding-left: 16px; }
+        .phase-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
         .phase-tag.sharp { background: #e94560; color: #fff; }
         .phase-tag.decline { background: #f0a500; color: #000; }
         .phase-tag.near-zero { background: #6c0000; color: #ff6666; }
@@ -133,64 +68,23 @@
         .val-low { color: #f0a500; }
         .val-normal { color: #00c9a7; }
         .val-high { color: #4da6ff; }
-
-        /* 事件时间线 */
-        .timeline {
-            margin: 24px 0;
-        }
+        .timeline { margin: 24px 0; }
         .timeline-item {
-            display: flex;
-            gap: 16px;
-            padding: 12px 0;
-            border-left: 2px solid #2a2a3e;
-            padding-left: 20px;
-            position: relative;
+            display: flex; gap: 16px; padding: 12px 0;
+            border-left: 2px solid #2a2a3e; padding-left: 20px; position: relative;
         }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 16px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #e94560;
+            content: ''; position: absolute; left: -6px; top: 16px;
+            width: 10px; height: 10px; border-radius: 50%; background: #e94560;
         }
-        .timeline-date {
-            min-width: 100px;
-            color: #888;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        .timeline-content {
-            flex: 1;
-        }
-        .timeline-title {
-            color: #fff;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-        .timeline-desc {
-            color: #888;
-            font-size: 13px;
-        }
-
-        /* 来源 */
-        .sources {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #2a2a3e;
-            color: #555;
-            font-size: 12px;
-        }
-
+        .timeline-date { min-width: 100px; color: #888; font-size: 13px; font-weight: 600; }
+        .timeline-content { flex: 1; }
+        .timeline-title { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+        .timeline-desc { color: #888; font-size: 13px; }
+        .sources { margin-top: 30px; padding-top: 20px; border-top: 1px solid #2a2a3e; color: #555; font-size: 12px; }
         .section-title {
-            font-size: 20px;
-            color: #fff;
-            margin: 30px 0 16px;
-            padding-left: 12px;
-            border-left: 3px solid #e94560;
+            font-size: 20px; color: #fff; margin: 30px 0 16px;
+            padding-left: 12px; border-left: 3px solid #e94560;
         }
     </style>
 </head>
@@ -198,13 +92,11 @@
 
 <div class="header">
     <h1>⚓ 霍尔木兹海峡航运追踪报告</h1>
-    <div class="subtitle">Strait of Hormuz Shipping Traffic Tracker — 2026年3月</div>
-    <div class="last-update">数据截至: 2026年3月30日 | 冲突第30天 | 海峡状态: 🔴 管控通行</div>
+    <div class="subtitle">Strait of Hormuz Shipping Traffic Tracker — 2026年03月</div>
+    <div class="last-update">数据截至: 2026-04-01 | 冲突第33天 | 海峡状态: 🔴 管控通行</div>
 </div>
 
 <div class="container">
-
-    <!-- 核心指标卡片 -->
     <div class="summary-grid">
         <div class="summary-card">
             <div class="label">冲突前日均</div>
@@ -212,14 +104,14 @@
             <div class="note">艘/天 (2026年2月)</div>
         </div>
         <div class="summary-card">
-            <div class="label">3月日均</div>
-            <div class="value red">~4.7</div>
-            <div class="note">艘/天 (暴跌96.6%)</div>
+            <div class="label">当月日均</div>
+            <div class="value red">~4.3</div>
+            <div class="note">艘/天 (暴跌96.9%)</div>
         </div>
         <div class="summary-card">
-            <div class="label">3月累计通行</div>
-            <div class="value orange">~142</div>
-            <div class="note">艘 (3月1日—30日)</div>
+            <div class="label">当月累计通行</div>
+            <div class="value orange">~138</div>
+            <div class="note">艘</div>
         </div>
         <div class="summary-card">
             <div class="label">被困船只</div>
@@ -238,291 +130,330 @@
         </div>
     </div>
 
-    <!-- 每日通行趋势图 -->
     <div class="chart-section">
-        <h2>📊 每日通行量趋势图 (3月1日—30日)</h2>
+        <h2>📊 每日通行量趋势图</h2>
         <div class="chart-container tall">
             <canvas id="dailyTrafficChart"></canvas>
         </div>
     </div>
 
-    <!-- 累计通行对比图 -->
     <div class="chart-section">
-        <h2>📈 3月累计通行量 vs 正常水平</h2>
+        <h2>📈 当月累计通行量 vs 正常水平</h2>
         <div class="chart-container">
             <canvas id="cumulativeChart"></canvas>
         </div>
     </div>
 
-    <!-- 每日数据表格 -->
     <h3 class="section-title">📋 每日通行数据明细</h3>
     <div class="data-table-wrapper">
         <table>
             <thead>
                 <tr>
-                    <th>日期</th>
-                    <th>Day</th>
-                    <th>阶段</th>
-                    <th>通行船只</th>
-                    <th>原油/成品油轮</th>
-                    <th>集装箱/散货</th>
-                    <th>备注</th>
+                    <th>日期</th><th>Day</th><th>阶段</th><th>通行船只</th>
+                    <th>原油/成品油轮</th><th>集装箱/散货</th><th>备注</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="day-cell">3月1日</td><td>D+1</td>
-                    <td><span class="phase-tag sharp">急降</span></td>
-                    <td class="val-low">~12</td><td class="val-low">~8</td><td class="val-low">~4</td>
-                    <td>伊朗宣布封锁海峡；首轮空袭后恐慌性下降</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月2日</td><td>D+2</td>
-                    <td><span class="phase-tag sharp">急降</span></td>
-                    <td class="val-low">~8</td><td class="val-low">~6</td><td class="val-low">~2</td>
-                    <td>主要影子船队油轮冒险通行</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月3日</td><td>D+3</td>
-                    <td><span class="phase-tag decline">衰减</span></td>
-                    <td class="val-low">~7</td><td class="val-low">~5</td><td class="val-low">~2</td>
-                    <td>11艘LNG船改道驶向亚洲</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月4日</td><td>D+4</td>
-                    <td><span class="phase-tag decline">衰减</span></td>
-                    <td class="val-low">~6</td><td class="val-low">~4</td><td class="val-low">~2</td>
-                    <td>保险公司全面撤销战争险</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月5日</td><td>D+5</td>
-                    <td><span class="phase-tag decline">衰减</span></td>
-                    <td class="val-low">~6</td><td class="val-low">~4</td><td class="val-low">~2</td>
-                    <td>战前同期日均110-124艘</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月6日</td><td>D+6</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>美军增兵海湾地区</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月7日</td><td>D+7</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>COSCO、Maersk、MSC暂停订舱</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月8日</td><td>D+8</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~5</td><td class="val-low">~4</td><td class="val-zero">~1</td>
-                    <td>Statista: 3月初日均仅6艘</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月9日</td><td>D+9</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>海湾至亚洲油轮运价翻3倍</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月10日</td><td>D+10</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>Seavantage追踪1265+艘海面船只</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月11日</td><td>D+11</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>3月11-18日仅通行20艘</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月12日</td><td>D+12</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>日军舰进入海湾协防</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月13日</td><td>D+13</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>SCFI欧洲航线运价涨142%</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月14日</td><td>D+14</td>
-                    <td><span class="phase-tag near-zero">归零</span></td>
-                    <td class="val-zero">0</td><td class="val-zero">0</td><td class="val-zero">0</td>
-                    <td>⭐ <b>首次归零</b> 集装箱船通行归零</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月15日</td><td>D+15</td>
-                    <td><span class="phase-tag near-zero">归零</span></td>
-                    <td class="val-zero">~1</td><td class="val-zero">0</td><td class="val-zero">~1</td>
-                    <td>仅有零星影子船队移动</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月16日</td><td>D+16</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~2</td><td class="val-zero">~1</td><td class="val-zero">~1</td>
-                    <td>苏伊士运河通行降至16艘/周</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月17日</td><td>D+17</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~2</td><td class="val-zero">~1</td><td class="val-zero">~1</td>
-                    <td>113艘集装箱船被困红海</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月18日</td><td>D+18</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>伊朗散货船开始谨慎通行</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月19日</td><td>D+19</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>七国联护航队抵达海湾</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月20日</td><td>D+20</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>近24h通航归零；3月累计128艘</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月21日</td><td>D+21</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>船员被困第20天，缺水断菜</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月22日</td><td>D+22</td>
-                    <td><span class="phase-tag near-zero">冰点</span></td>
-                    <td class="val-zero">~3</td><td class="val-low">~2</td><td class="val-zero">~1</td>
-                    <td>国际社会呼吁建立"安全通道"</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月23日</td><td>D+23</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~5</td><td class="val-low">~3</td><td class="val-low">~2</td>
-                    <td>伊朗散货船"阿尔达万"号通过</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月24日</td><td>D+24</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>新华网: 3月1-23日共144次通航</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月25日</td><td>D+25</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~5</td><td class="val-low">~3</td><td class="val-low">~2</td>
-                    <td>3艘散货船向西通过海峡</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月26日</td><td>D+26</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>伊朗推行"付费通行"管控系统</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月27日</td><td>D+27</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~5</td><td class="val-low">~3</td><td class="val-low">~2</td>
-                    <td>3月18-25日共28艘通过；革命卫队声明关闭</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月28日</td><td>D+28</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~5</td><td class="val-low">~3</td><td class="val-low">~2</td>
-                    <td>战前运价4倍；安全通道方案讨论中</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月29日</td><td>D+29</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>美军地面战"尖刀斩首"方案曝光</td>
-                </tr>
-                <tr>
-                    <td class="day-cell">3月30日</td><td>D+30</td>
-                    <td><span class="phase-tag controlled">管控</span></td>
-                    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-zero">~1</td>
-                    <td>海峡持续管控通行，未恢复正常</td>
-                </tr>
+    <td class="day-cell">3月1日</td><td>D+1</td>
+    <td><span class="phase-tag sharp">急降</span></td>
+    <td class="val-normal">~12</td><td class="val-normal">~8</td><td class="val-normal">~4</td>
+    <td>伊朗宣布封锁海峡；首轮空袭后恐慌性下降</td>
+</tr>
+<tr>
+    <td class="day-cell">3月2日</td><td>D+2</td>
+    <td><span class="phase-tag sharp">急降</span></td>
+    <td class="val-normal">~8</td><td class="val-normal">~6</td><td class="val-normal">~2</td>
+    <td>主要影子船队油轮冒险通行</td>
+</tr>
+<tr>
+    <td class="day-cell">3月3日</td><td>D+3</td>
+    <td><span class="phase-tag decline">衰减</span></td>
+    <td class="val-normal">~7</td><td class="val-normal">~5</td><td class="val-normal">~2</td>
+    <td>11艘LNG船改道驶向亚洲</td>
+</tr>
+<tr>
+    <td class="day-cell">3月4日</td><td>D+4</td>
+    <td><span class="phase-tag decline">衰减</span></td>
+    <td class="val-normal">~6</td><td class="val-normal">~4</td><td class="val-normal">~2</td>
+    <td>保险公司全面撤销战争险</td>
+</tr>
+<tr>
+    <td class="day-cell">3月5日</td><td>D+5</td>
+    <td><span class="phase-tag decline">衰减</span></td>
+    <td class="val-normal">~6</td><td class="val-normal">~4</td><td class="val-normal">~2</td>
+    <td>战前同期日均110-124艘</td>
+</tr>
+<tr>
+    <td class="day-cell">3月6日</td><td>D+6</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>美军增兵海湾地区</td>
+</tr>
+<tr>
+    <td class="day-cell">3月7日</td><td>D+7</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>COSCO、Maersk、MSC暂停订舱</td>
+</tr>
+<tr>
+    <td class="day-cell">3月8日</td><td>D+8</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~4</td><td class="val-normal">~1</td>
+    <td>Statista: 3月初日均仅6艘</td>
+</tr>
+<tr>
+    <td class="day-cell">3月9日</td><td>D+9</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>海湾至亚洲油轮运价翻3倍</td>
+</tr>
+<tr>
+    <td class="day-cell">3月10日</td><td>D+10</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>Seavantage追踪1265+艘海面船只</td>
+</tr>
+<tr>
+    <td class="day-cell">3月11日</td><td>D+11</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>3月11-18日仅通行20艘</td>
+</tr>
+<tr>
+    <td class="day-cell">3月12日</td><td>D+12</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>日军舰进入海湾协防</td>
+</tr>
+<tr>
+    <td class="day-cell">3月13日</td><td>D+13</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>SCFI欧洲航线运价涨142%</td>
+</tr>
+<tr>
+    <td class="day-cell">3月14日</td><td>D+14</td>
+    <td><span class="phase-tag near-zero">归零</span></td>
+    <td class="val-zero">~0</td><td class="val-zero">~0</td><td class="val-zero">~0</td>
+    <td>⭐ 首次归零 集装箱船通行归零</td>
+</tr>
+<tr>
+    <td class="day-cell">3月15日</td><td>D+15</td>
+    <td><span class="phase-tag near-zero">归零</span></td>
+    <td class="val-low">~1</td><td class="val-low">~0</td><td class="val-low">~1</td>
+    <td>仅有零星影子船队移动</td>
+</tr>
+<tr>
+    <td class="day-cell">3月16日</td><td>D+16</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~2</td><td class="val-low">~1</td><td class="val-low">~1</td>
+    <td>苏伊士运河通行降至16艘/周</td>
+</tr>
+<tr>
+    <td class="day-cell">3月17日</td><td>D+17</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~2</td><td class="val-low">~1</td><td class="val-low">~1</td>
+    <td>113艘集装箱船被困红海</td>
+</tr>
+<tr>
+    <td class="day-cell">3月18日</td><td>D+18</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>伊朗散货船开始谨慎通行</td>
+</tr>
+<tr>
+    <td class="day-cell">3月19日</td><td>D+19</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>七国联护航队抵达海湾</td>
+</tr>
+<tr>
+    <td class="day-cell">3月20日</td><td>D+20</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>近24h通航归零；3月累计128艘</td>
+</tr>
+<tr>
+    <td class="day-cell">3月21日</td><td>D+21</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>船员被困第20天，缺水断菜</td>
+</tr>
+<tr>
+    <td class="day-cell">3月22日</td><td>D+22</td>
+    <td><span class="phase-tag near-zero">冰点</span></td>
+    <td class="val-low">~3</td><td class="val-low">~2</td><td class="val-low">~1</td>
+    <td>国际社会呼吁建立安全通道</td>
+</tr>
+<tr>
+    <td class="day-cell">3月23日</td><td>D+23</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>伊朗散货船阿尔达万号通过</td>
+</tr>
+<tr>
+    <td class="day-cell">3月24日</td><td>D+24</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>新华网: 3月1-23日共144次通航</td>
+</tr>
+<tr>
+    <td class="day-cell">3月25日</td><td>D+25</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>3艘散货船向西通过海峡</td>
+</tr>
+<tr>
+    <td class="day-cell">3月26日</td><td>D+26</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>伊朗推行付费通行管控系统</td>
+</tr>
+<tr>
+    <td class="day-cell">3月27日</td><td>D+27</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~6</td><td class="val-normal">~4</td><td class="val-normal">~2</td>
+    <td>革命卫队声明关闭；近24h通行6艘</td>
+</tr>
+<tr>
+    <td class="day-cell">3月28日</td><td>D+28</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>泰国、马来西亚就通行与伊朗达成协议</td>
+</tr>
+<tr>
+    <td class="day-cell">3月29日</td><td>D+29</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>美军地面战尖刀斩首方案曝光</td>
+</tr>
+<tr>
+    <td class="day-cell">3月30日</td><td>D+30</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
+    <td>海峡持续管控通行</td>
+</tr>
+<tr>
+    <td class="day-cell">3月31日</td><td>D+32</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>Windward: 入境4+出境4=8艘，海湾活跃606艘</td>
+</tr>
+<tr>
+    <td class="day-cell">4月1日</td><td>D+34</td>
+    <td><span class="phase-tag controlled">管控</span></td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>科威特机场油罐遭无人机袭击；布伦特$104.63</td>
+</tr>
+
             </tbody>
         </table>
     </div>
 
-    <!-- 关键事件时间线 -->
     <h3 class="section-title">📅 关键事件时间线</h3>
     <div class="timeline">
         <div class="timeline-item">
-            <div class="timeline-date">2月28日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">🚨 美以对伊开战，海峡封锁</div>
-                <div class="timeline-desc">美以军事打击伊朗，伊朗当晚宣布禁止任何船只通过海峡</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月1—3日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">📉 通行量断崖式下跌</div>
-                <div class="timeline-desc">从日均138艘暴跌至日均6-7艘，保险公司撤销战争险</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月7日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">🚢 三大航运巨头暂停订舱</div>
-                <div class="timeline-desc">COSCO、Maersk、MSC全面暂停霍尔木兹航线订舱</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月14日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">⚫ 通航量首次归零</div>
-                <div class="timeline-desc">没有船舶通过海峡，集装箱船通行完全归零</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月19日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">🛡️ 七国联护航队部署</div>
-                <div class="timeline-desc">英美法德意荷日加七国联合护航队抵达海湾，特朗普要求欧洲盟友加入</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月20日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">⚫ 近24小时通航再次归零</div>
-                <div class="timeline-desc">截至16:00通过0艘；3月累计仅128艘，载重吨位骤降</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月24日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">📊 新华网通报通航暴跌逾九成</div>
-                <div class="timeline-desc">3月1-23日仅144次通航，其中91次为油气船；通行量下降95%</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月26日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">📋 伊朗推行"管控系统"</div>
-                <div class="timeline-desc">要求过往船只提交文件、获取通行代码，接受伊方护航</div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">3月27日</div>
-            <div class="timeline-content">
-                <div class="timeline-title">🔒 伊斯兰革命卫队声明关闭海峡</div>
-                <div class="timeline-desc">3月累计142艘通行，67%与伊朗关联；阿拉伯海内有~1140艘远洋船</div>
-            </div>
-        </div>
+    <div class="timeline-date">2月28日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🚨 美以对伊开战，海峡封锁</div>
+        <div class="timeline-desc">美以军事打击伊朗，伊朗当晚宣布禁止任何船只通过海峡</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月1-3日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📉 通行量断崖式下跌</div>
+        <div class="timeline-desc">从日均138艘暴跌至日均6-7艘，保险公司撤销战争险</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月7日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🚢 三大航运巨头暂停订舱</div>
+        <div class="timeline-desc">COSCO、Maersk、MSC全面暂停霍尔木兹航线订舱</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月14日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">⚫ 通航量首次归零</div>
+        <div class="timeline-desc">没有船舶通过海峡，集装箱船通行完全归零</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月19日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🛡️ 七国联护航队部署</div>
+        <div class="timeline-desc">英美法德意荷日加七国联合护航队抵达海湾</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月24日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📊 新华网通报通航暴跌逾九成</div>
+        <div class="timeline-desc">3月1-23日仅144次通航，其中91次为油气船</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月26日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📋 伊朗推行管控系统</div>
+        <div class="timeline-desc">要求过往船只提交文件、获取通行代码，接受伊方护航</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月27日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🔒 革命卫队声明关闭海峡</div>
+        <div class="timeline-desc">3月累计158艘通行，67%与伊朗关联</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月28日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🤝 多国就通行与伊朗达成协议</div>
+        <div class="timeline-desc">泰国、马来西亚就油轮通行与伊朗达成双边协议</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月30日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📋 特朗普延期海峡期限至4月6日</div>
+        <div class="timeline-desc">威胁若4月6日不重开将采取行动</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">3月31日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">⚓ Windward: 海峡通行小幅回升至8艘</div>
+        <div class="timeline-desc">入境4艘+出境4艘，海湾内活跃606艘，暗船活动387起</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🇰🇼 科威特机场油罐遭无人机袭击起火</div>
+        <div class="timeline-desc">伊朗无人机打击科威特国际机场燃料罐，科威特油轮阿尔-萨尔米号在迪拜遭袭</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📉 布伦特原油回落至$104.63</div>
+        <div class="timeline-desc">特朗普称'两到三周内结束战争'，市场预期缓和，油价从$112.57下跌</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🇦🇪 阿联酋禁止伊朗公民入境</div>
+        <div class="timeline-desc">Emirates/Etihad/FlyDubai三大航司禁止伊朗旅客入境或过境</div>
+    </div>
+</div>
+
     </div>
 
-    <!-- 数据说明 -->
     <div class="chart-section">
         <h2>ℹ️ 数据来源与说明</h2>
         <div style="color: #a0a0b0; font-size: 14px; line-height: 1.8;">
@@ -537,32 +468,26 @@
             </ul>
             <p style="margin-top: 16px;"><b>重要说明：</b></p>
             <ul style="padding-left: 20px; margin-top: 8px;">
-                <li>数据基于AIS（船舶自动识别系统）追踪，<b>未开启AIS的船只不计入</b>，实际通行量可能高于统计值</li>
-                <li>3月14日集装箱船通行量为<b>确认归零</b>，3月20日近24小时总通航归零</li>
-                <li>3月中旬后通行的船只<b>67%与伊朗直接关联</b>，多数为影子船队</li>
-                <li>红色标记数值为"确认归零"或极低通航，橙色为严重低于正常值</li>
-                <li>本报告中部分日期为基于累计数据反推的<b>估算值</b>（标注~号），已标注来源</li>
+                <li>数据基于AIS（船舶自动识别系统）追踪，未开启AIS的船只不计入</li>
+                <li>3月中旬后通行的船只约67%与伊朗直接关联，多数为影子船队</li>
+                <li>本报告中部分日期为基于累计数据反推的估算值（标注~号）</li>
             </ul>
         </div>
     </div>
 
     <div class="sources">
-        数据来源: IMF PortWatch, Project44, 船视宝, AXSMarine, 新华社, CCTV, 劳埃德船舶日报, WTO Data Lab, Seavantage, Statista | 生成时间: 2026-03-30
+        数据来源: IMF PortWatch, Project44, 船视宝, AXSMarine, 新华社, CCTV, 劳埃德船舶日报, WTO Data Lab, Seavantage | 生成时间: 2026-04-01
     </div>
 </div>
 
 <script>
-// 每日通行量数据
 const dailyData = {
-    labels: ['3/1','3/2','3/3','3/4','3/5','3/6','3/7','3/8','3/9','3/10',
-             '3/11','3/12','3/13','3/14','3/15','3/16','3/17','3/18','3/19','3/20',
-             '3/21','3/22','3/23','3/24','3/25','3/26','3/27','3/28','3/29','3/30'],
-    total:   [12, 8, 7, 6, 6, 4, 4, 5, 4, 4, 4, 4, 3, 0, 1, 2, 2, 3, 3, 3, 3, 3, 5, 4, 5, 4, 5, 5, 4, 4],
-    oilTanker: [8, 6, 5, 4, 4, 3, 3, 4, 3, 3, 3, 3, 2, 0, 0, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3],
-    other:    [4, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1]
+    labels: ["3/1", "3/2", "3/3", "3/4", "3/5", "3/6", "3/7", "3/8", "3/9", "3/10", "3/11", "3/12", "3/13", "3/14", "3/15", "3/16", "3/17", "3/18", "3/19", "3/20", "3/21", "3/22", "3/23", "3/24", "3/25", "3/26", "3/27", "3/28", "3/29", "3/30", "3/31", "4/1"],
+    total:   [12, 8, 7, 6, 6, 4, 4, 5, 4, 4, 4, 4, 3, 0, 1, 2, 2, 3, 3, 3, 3, 3, 5, 4, 5, 4, 6, 5, 4, 4, 5, 5],
+    oilTanker: [8, 6, 5, 4, 4, 3, 3, 4, 3, 3, 3, 3, 2, 0, 0, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+    other:    [4, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 2]
 };
 
-// 每日通行量趋势图
 const ctx1 = document.getElementById('dailyTrafficChart').getContext('2d');
 new Chart(ctx1, {
     type: 'bar',
@@ -573,73 +498,44 @@ new Chart(ctx1, {
                 label: '原油/成品油轮',
                 data: dailyData.oilTanker,
                 backgroundColor: 'rgba(233, 69, 96, 0.8)',
-                borderColor: '#e94560',
-                borderWidth: 1,
-                stack: 'stack0'
+                borderColor: '#e94560', borderWidth: 1, stack: 'stack0'
             },
             {
                 label: '集装箱/散货/其他',
                 data: dailyData.other,
                 backgroundColor: 'rgba(77, 166, 255, 0.8)',
-                borderColor: '#4da6ff',
-                borderWidth: 1,
-                stack: 'stack0'
+                borderColor: '#4da6ff', borderWidth: 1, stack: 'stack0'
             },
             {
                 label: '正常日均基线 (138艘)',
-                data: Array(30).fill(138),
+                data: Array(32).fill(138),
                 type: 'line',
-                borderColor: '#00c9a7',
-                borderWidth: 2,
-                borderDash: [8, 4],
-                pointRadius: 0,
-                fill: false,
-                stack: 'stack1'
+                borderColor: '#00c9a7', borderWidth: 2, borderDash: [8, 4],
+                pointRadius: 0, fill: false, stack: 'stack1'
             }
         ]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
             legend: { labels: { color: '#a0a0b0', font: { size: 12 } } },
-            tooltip: {
-                backgroundColor: '#1a1a2e',
-                titleColor: '#fff',
-                bodyColor: '#ccc',
-                borderColor: '#2a2a3e',
-                borderWidth: 1
-            }
+            tooltip: { backgroundColor: '#1a1a2e', titleColor: '#fff', bodyColor: '#ccc', borderColor: '#2a2a3e', borderWidth: 1 }
         },
         scales: {
-            x: {
-                stacked: true,
-                ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 },
-                grid: { color: '#1e1e30' }
-            },
-            y: {
-                stacked: true,
-                title: { display: true, text: '通行船只数量 (艘)', color: '#888' },
-                ticks: { color: '#888' },
-                grid: { color: '#1e1e30' },
-                min: 0,
-                max: 160
-            }
+            x: { stacked: true, ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 }, grid: { color: '#1e1e30' } },
+            y: { stacked: true, title: { display: true, text: '通行船只数量 (艘)', color: '#888' },
+                 ticks: { color: '#888' }, grid: { color: '#1e1e30' }, min: 0, max: 160 }
         }
     }
 });
 
-// 累计通行量对比图
 const cumulativeActual = [];
 const cumulativeNormal = [];
-let sumActual = 0;
-let sumNormal = 0;
-dailyData.total.forEach((v, i) => {
-    sumActual += v;
-    cumulativeActual.push(sumActual);
-    sumNormal += 138;
-    cumulativeNormal.push(sumNormal);
+let sumActual = 0, sumNormal = 0;
+dailyData.total.forEach((v) => {
+    sumActual += v; cumulativeActual.push(sumActual);
+    sumNormal += 138; cumulativeNormal.push(sumNormal);
 });
 
 const ctx2 = document.getElementById('cumulativeChart').getContext('2d');
@@ -651,37 +547,24 @@ new Chart(ctx2, {
             {
                 label: '实际累计通行量',
                 data: cumulativeActual,
-                borderColor: '#e94560',
-                backgroundColor: 'rgba(233, 69, 96, 0.1)',
-                fill: true,
-                tension: 0.3,
-                pointRadius: 3,
-                pointBackgroundColor: '#e94560'
+                borderColor: '#e94560', backgroundColor: 'rgba(233, 69, 96, 0.1)',
+                fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: '#e94560'
             },
             {
                 label: '正常水平累计 (按138艘/天)',
                 data: cumulativeNormal,
-                borderColor: '#00c9a7',
-                backgroundColor: 'rgba(0, 201, 167, 0.05)',
-                fill: true,
-                tension: 0.3,
-                pointRadius: 0,
-                borderDash: [5, 3]
+                borderColor: '#00c9a7', backgroundColor: 'rgba(0, 201, 167, 0.05)',
+                fill: true, tension: 0.3, pointRadius: 0, borderDash: [5, 3]
             }
         ]
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
             legend: { labels: { color: '#a0a0b0', font: { size: 12 } } },
             tooltip: {
-                backgroundColor: '#1a1a2e',
-                titleColor: '#fff',
-                bodyColor: '#ccc',
-                borderColor: '#2a2a3e',
-                borderWidth: 1,
+                backgroundColor: '#1a1a2e', titleColor: '#fff', bodyColor: '#ccc', borderColor: '#2a2a3e', borderWidth: 1,
                 callbacks: {
                     afterBody: function(tooltipItems) {
                         const actual = tooltipItems[0].raw;
@@ -693,15 +576,9 @@ new Chart(ctx2, {
             }
         },
         scales: {
-            x: {
-                ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 },
-                grid: { color: '#1e1e30' }
-            },
-            y: {
-                title: { display: true, text: '累计通行量 (艘)', color: '#888' },
-                ticks: { color: '#888' },
-                grid: { color: '#1e1e30' }
-            }
+            x: { ticks: { color: '#888', font: { size: 10 }, maxRotation: 45 }, grid: { color: '#1e1e30' } },
+            y: { title: { display: true, text: '累计通行量 (艘)', color: '#888' },
+                 ticks: { color: '#888' }, grid: { color: '#1e1e30' } }
         }
     }
 });

@@ -105,12 +105,12 @@
         </div>
         <div class="summary-card">
             <div class="label">当月日均</div>
-            <div class="value red">~4.0</div>
-            <div class="note">艘/天 (暴跌97.1%)</div>
+            <div class="value red">~5.0</div>
+            <div class="note">艘/天 (暴跌96.4%)</div>
         </div>
         <div class="summary-card">
             <div class="label">当月累计通行</div>
-            <div class="value orange">~8</div>
+            <div class="value orange">~5</div>
             <div class="note">艘</div>
         </div>
         <div class="summary-card">
@@ -155,16 +155,10 @@
             </thead>
             <tbody>
                 <tr>
-    <td class="day-cell">4月1日</td><td>D+33</td>
+    <td class="day-cell">4月1日</td><td>D+34</td>
     <td><span class="phase-tag controlled">管控</span></td>
-    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
-    <td>海峡持续管控通行</td>
-</tr>
-<tr>
-    <td class="day-cell">4月1日</td><td>D+33</td>
-    <td><span class="phase-tag controlled">管控</span></td>
-    <td class="val-low">~4</td><td class="val-low">~3</td><td class="val-low">~1</td>
-    <td>海峡持续管控通行</td>
+    <td class="val-normal">~5</td><td class="val-normal">~3</td><td class="val-normal">~2</td>
+    <td>科威特机场油罐遭无人机袭击；布伦特$104.63</td>
 </tr>
 
             </tbody>
@@ -243,6 +237,34 @@
         <div class="timeline-desc">威胁若4月6日不重开将采取行动</div>
     </div>
 </div>
+<div class="timeline-item">
+    <div class="timeline-date">3月31日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">⚓ Windward: 海峡通行小幅回升至8艘</div>
+        <div class="timeline-desc">入境4艘+出境4艘，海湾内活跃606艘，暗船活动387起</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🇰🇼 科威特机场油罐遭无人机袭击起火</div>
+        <div class="timeline-desc">伊朗无人机打击科威特国际机场燃料罐，科威特油轮阿尔-萨尔米号在迪拜遭袭</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">📉 布伦特原油回落至$104.63</div>
+        <div class="timeline-desc">特朗普称'两到三周内结束战争'，市场预期缓和，油价从$112.57下跌</div>
+    </div>
+</div>
+<div class="timeline-item">
+    <div class="timeline-date">4月1日</div>
+    <div class="timeline-content">
+        <div class="timeline-title">🇦🇪 阿联酋禁止伊朗公民入境</div>
+        <div class="timeline-desc">Emirates/Etihad/FlyDubai三大航司禁止伊朗旅客入境或过境</div>
+    </div>
+</div>
 
     </div>
 
@@ -274,10 +296,10 @@
 
 <script>
 const dailyData = {
-    labels: ["4/1", "4/1"],
-    total:   [4, 4],
-    oilTanker: [3, 3],
-    other:    [1, 1]
+    labels: ["4/1"],
+    total:   [5],
+    oilTanker: [3],
+    other:    [2]
 };
 
 const ctx1 = document.getElementById('dailyTrafficChart').getContext('2d');
@@ -300,7 +322,7 @@ new Chart(ctx1, {
             },
             {
                 label: '正常日均基线 (138艘)',
-                data: Array(2).fill(138),
+                data: Array(1).fill(138),
                 type: 'line',
                 borderColor: '#00c9a7', borderWidth: 2, borderDash: [8, 4],
                 pointRadius: 0, fill: false, stack: 'stack1'
